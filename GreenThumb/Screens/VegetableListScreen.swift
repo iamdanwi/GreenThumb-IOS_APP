@@ -13,7 +13,7 @@ struct VegetableListScreen: View {
     
     var body: some View {
         List(vegetables, id: \.vegetableId) { vegetable in
-            Text(vegetable.name)
+            VegetableViewCell(vegetable: vegetable)
         }.listStyle(.plain, )
         .task {
             do{
@@ -22,11 +22,13 @@ struct VegetableListScreen: View {
             }catch {
                 print("Failed to fetch vegetables: \(error.localizedDescription)")
             }
-        }
-        .padding()
+        }.navigationTitle("Vegetables")
+//        .padding()
     }
 }
 
 #Preview {
-    VegetableListScreen()
+    NavigationStack {
+        VegetableListScreen()
+    }
 }

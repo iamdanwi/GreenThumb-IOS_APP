@@ -9,7 +9,27 @@ import SwiftUI
 
 struct VegetableTabBarScreen: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView{
+            NavigationStack{
+                VegetableListScreen()
+            }.tabItem{
+                    Image(systemName: "leaf")
+                    Text("Vegetable")
+            }
+            NavigationStack{
+                Text("MyGardenScreen")
+            }.tabItem {
+                    Image(systemName: "house")
+                    Text("My Garden")
+            }
+            
+            NavigationStack{
+                Text("Bug")
+            }.tabItem {
+                    Image(systemName: "ladybug")
+                    Text("Pests")
+            }
+        }
     }
 }
 
