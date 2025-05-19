@@ -12,8 +12,12 @@ struct VegetableListScreen: View {
     @State private var vegetables: [Vegetable] = []
     
     var body: some View {
-        List(vegetables, id: \.vegetableId) { vegetable in
+        List(vegetables, id: \.vegetableId) { vegetable in NavigationLink{
+            VegetableDetailScreen(vegetable: vegetable)
+        }label: {
             VegetableViewCell(vegetable: vegetable)
+        }
+            
         }.listStyle(.plain, )
         .task {
             do{
